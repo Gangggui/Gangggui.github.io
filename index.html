@@ -57,6 +57,18 @@
 </header><main class="main">
                 <div class="container"><div class="page home" data-home="posts"><div class="home-profile"><div class="home-subtitle"><div id="id-1" class="typeit"></div></div><div class="links"></div></div>
 <article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
+        <a href="/posts/blog/">Blog</a>
+    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Author</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-05-27">2022-05-27</time></span></div><div class="content">第一篇博客 如何基于github page+hugo搭建静态博客
+一， 安装及简易测试hugo
+  安装hugo
+sudo apt install hugo   运行命令创建一个新的网站
+hugo new site 网站名   创建第一个文章
+hugo new posts/about.md # about.md 自动生成到content/posts/about.md # 打开网站看到文章需将draft:true 改为draft：false   安装主题(https://themes.gohugo.io/)
+#创建themes目录，访问https://themes.gohugo.io/ cd themes # 选择喜欢的主题下载 git clone https://github.com/dillonzq/LoveIt.git 下载好之后，修改config.toml文件
+theme=&#34;LoveIt&#34;   运行网站，简单测试
+hugo server   二、将hugo博客从本地托管到github page</div><div class="post-footer">
+        <a href="/posts/blog/">Read More</a></div>
+</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
         <a href="/posts/tcp/">Tcp</a>
     </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Author</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-05-27">2022-05-27</time></span></div><div class="content">TCP send/recv函数
 问题：A机作为linux tcp服务器，B机作为linux tcp客户端，A，B机正常建立连接，A机可以正常收到并解析B机的帧，但B机无法收到A机的数据帧？(A机socket默认配置，send函数返回大于0)
@@ -68,10 +80,6 @@ Thinking: tcp read函数最大等待时长，什么时候开始判断接收缓�
  ​ 在阻塞模式下, send函数的过程是将应用程序请求发送的数据拷贝到发送缓存中发送就返回.但由于发送缓存的存在,表现为:如果发送缓存大小比请求发送的大小要大,那么send函数立即返回,同时向网络中发送数据;否则,send会等待接收端对之前发送数据的确认,以便腾出缓存空间容纳新的待发送数据,再返回(接收端协议栈只要将数据收到接收缓存中,就会确认,并不一定要等待应用程序调用recv), 如果一直没有空间能容纳待发送的数据,则一直阻塞; ​ 在非阻塞模式下,send函数的过程仅仅是将数据拷贝到协议栈的缓存区而已,如果缓存区可用空间不够,则尽能力的拷贝,立即返回成功拷贝的大小;如缓存区可用空间为0,则返回-1,同时设置errno为EAGAIN.
    </div><div class="post-footer">
         <a href="/posts/tcp/">Read More</a></div>
-</article><article class="single summary" itemscope itemtype="http://schema.org/Article"><h1 class="single-title" itemprop="name headline">
-        <a href="/posts/blog/">Blog</a>
-    </h1><div class="post-meta"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Author</a></span>&nbsp;<span class="post-publish">published on <time datetime="2022-05-25">2022-05-25</time></span></div><div class="content">Hello world</div><div class="post-footer">
-        <a href="/posts/blog/">Read More</a></div>
 </article></div></div>
             </main><footer class="footer">
         <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.99.1">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
