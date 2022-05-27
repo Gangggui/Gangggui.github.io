@@ -3,13 +3,29 @@
         <title>All Posts - My New Hugo Site</title>
         <link>http://Gangggui.github.io/posts/</link>
         <description>All Posts | My New Hugo Site</description>
-        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 25 May 2022 17:24:14 &#43;0800</lastBuildDate><atom:link href="http://Gangggui.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+        <generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 27 May 2022 16:09:23 &#43;0800</lastBuildDate><atom:link href="http://Gangggui.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Tcp</title>
+    <link>http://Gangggui.github.io/posts/tcp/</link>
+    <pubDate>Fri, 27 May 2022 16:09:23 &#43;0800</pubDate>
+    <author>Author</author>
+    <guid>http://Gangggui.github.io/posts/tcp/</guid>
+    <description><![CDATA[TCP send/recv函数
+问题：A机作为linux tcp服务器，B机作为linux tcp客户端，A，B机正常建立连接，A机可以正常收到并解析B机的帧，但B机无法收到A机的数据帧？(A机socket默认配置，send函数返回大于0)
+Thinking： tcp send是什么时候返回？是否受socket阻塞字设置影响，是否能确定发送至对端接收缓冲区(收到ack信号？) &mdash; Tcp的可靠连接
+Thinking: tcp read函数最大等待时长，什么时候开始判断接收缓冲区是否有数据？
+资料：
+  https://zhuanlan.zhihu.com/p/55311553
+   http://blog.chinaunix.net/uid-8489474-id-2031025.html
+ ​ 在阻塞模式下, send函数的过程是将应用程序请求发送的数据拷贝到发送缓存中发送就返回.但由于发送缓存的存在,表现为:如果发送缓存大小比请求发送的大小要大,那么send函数立即返回,同时向网络中发送数据;否则,send会等待接收端对之前发送数据的确认,以便腾出缓存空间容纳新的待发送数据,再返回(接收端协议栈只要将数据收到接收缓存中,就会确认,并不一定要等待应用程序调用recv), 如果一直没有空间能容纳待发送的数据,则一直阻塞; ​ 在非阻塞模式下,send函数的过程仅仅是将数据拷贝到协议栈的缓存区而已,如果缓存区可用空间不够,则尽能力的拷贝,立即返回成功拷贝的大小;如缓存区可用空间为0,则返回-1,同时设置errno为EAGAIN.
+   ]]></description>
+</item>
+<item>
     <title>Blog</title>
     <link>http://Gangggui.github.io/posts/blog/</link>
     <pubDate>Wed, 25 May 2022 17:24:14 &#43;0800</pubDate>
     <author>Author</author>
     <guid>http://Gangggui.github.io/posts/blog/</guid>
-    <description><![CDATA[Hello world new yaer]]></description>
+    <description><![CDATA[Hello world]]></description>
 </item>
 </channel>
 </rss>
